@@ -1,0 +1,74 @@
+$commonTransition: all 0.3s linear;
+
+#qulifications {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+  text-align: center;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(124, 71, 10, 0.5),
+    rgba(251, 138, 10, 0.5)
+  );
+
+  .mainText {
+    text-transform: uppercase;
+    font-size: 2rem;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(108, 106, 106, 0.692);
+
+      cursor: grab;
+
+      width: 280px;
+      height: 200px;
+      border-radius: 5rem;
+      margin: 1rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      background-size: 100% 100%;
+
+      .text-box {
+        color: white;
+        text-transform: uppercase;
+      }
+
+      &:hover {
+        background-color: rgba(108, 106, 106, 0.96);
+
+        transition: all 0.3s linear;
+        transform: translate(0, -10px);
+
+        .text-box {
+          color: rgb(215, 213, 213);
+        }
+      }
+    }
+  }
+}
+
+$breakpoint-desktop: 1024px;
+$breakpoint-pad: 768px;
+
+@media (max-width: $breakpoint-desktop) {
+  #qulifications {
+    #projectMainBox {
+      #filterBox {
+        flex-wrap: wrap;
+        li {
+          width: 36%;
+        }
+      }
+    }
+  }
+}

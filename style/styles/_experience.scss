@@ -1,0 +1,35 @@
+#experience {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(251, 138, 10, 0.5),
+    rgba(124, 71, 10, 0.5)
+  );
+
+  article {
+    h1 {
+      font-size: 1.5rem;
+    }
+    margin-top: 5rem;
+    width: 450px;
+    margin-right: 5rem;
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  #experience {
+    display: flex;
+    flex-direction: column;
+    article {
+      width: 350px;
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+}
