@@ -1,6 +1,3 @@
-$breakpoint-desktop: 1024px;
-$commonTransition: all 0.2s linear;
-
 #home {
   min-height: 100vh;
   background-image: linear-gradient(
@@ -13,7 +10,7 @@ $commonTransition: all 0.2s linear;
     top: 0;
     left: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 99;
     background-color: rgba(251, 138, 10, 0.5);
     display: flex;
     align-items: center;
@@ -27,14 +24,11 @@ $commonTransition: all 0.2s linear;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: bold;
-      padding: 0;
       li {
         margin-right: 3rem;
         list-style: none;
         text-transform: capitalize;
-        font-size: 1.3rem;
-        transition: $commonTransition;
+        transition: all 0.1s linear;
         cursor: pointer;
 
         &:hover {
@@ -43,32 +37,26 @@ $commonTransition: all 0.2s linear;
       }
     }
 
-    .menu-bar {
+    #hamburger-bar {
       display: none;
     }
   }
 
   main {
-    margin-top: 5rem;
-    h1 {
-      font-size: 1.8rem;
-    }
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    text-align: center;
-
+    h1 {
+      font-size: 1.8rem;
+    }
     section {
       display: flex;
       text-align: left;
 
       article {
         width: 500px;
-        @media (max-width: 700px) {
-          width: 350px;
-        }
         h1 {
           font-size: 1.5rem;
         }
@@ -97,13 +85,13 @@ $commonTransition: all 0.2s linear;
     #moreWatch {
       background-color: rgb(124, 123, 123);
       padding: 1rem 2rem;
-      margin-top: 5rem;
+      margin-top: 1.5rem;
       border: none;
+      outline: none;
       border-radius: 10rem;
       cursor: pointer;
       transition: all 0.3s linear;
-      color: aliceblue;
-      font-weight: bold;
+      color: white;
       &:hover {
         background-color: rgb(87, 87, 87);
       }
@@ -111,7 +99,21 @@ $commonTransition: all 0.2s linear;
   }
 }
 
-@media (max-width: $breakpoint-desktop) {
+#scrollToTop {
+  position: fixed;
+  bottom: 5%;
+  right: 1%;
+  font-size: 3rem;
+  color: rgb(73, 73, 73);
+  transition: all 0.3s linear;
+  &:hover {
+    cursor: pointer;
+    font-size: 3.5rem;
+    color: rgb(44, 44, 44);
+  }
+}
+
+@media (max-width: 1024px) {
   #home {
     #navbar {
       display: block;
@@ -140,7 +142,7 @@ $commonTransition: all 0.2s linear;
         }
       }
 
-      .menu-bar {
+      #hamburger-bar {
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -151,8 +153,8 @@ $commonTransition: all 0.2s linear;
     section {
       display: flex;
       flex-direction: column;
-
       article {
+        width: 350px;
       }
     }
   }

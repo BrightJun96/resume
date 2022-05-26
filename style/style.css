@@ -1,8 +1,6 @@
 @font-face {
   font-family: "Vitro_core";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/Vitro_core.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
 }
 
 html,
@@ -27,7 +25,7 @@ body {
   top: 0;
   left: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 99;
   background-color: rgba(251, 138, 10, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -56,17 +54,14 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-weight: bold;
-  padding: 0;
 }
 
 #home #navbar ul li {
   margin-right: 3rem;
   list-style: none;
   text-transform: capitalize;
-  font-size: 1.3rem;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
   cursor: pointer;
 }
 
@@ -74,12 +69,11 @@ body {
   color: #7a7a7a;
 }
 
-#home #navbar .menu-bar {
+#home #navbar #hamburger-bar {
   display: none;
 }
 
 #home main {
-  margin-top: 5rem;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -94,7 +88,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  text-align: center;
 }
 
 #home main h1 {
@@ -110,12 +103,6 @@ body {
 
 #home main section article {
   width: 500px;
-}
-
-@media (max-width: 700px) {
-  #home main section article {
-    width: 350px;
-  }
 }
 
 #home main section article h1 {
@@ -147,18 +134,34 @@ body {
 #home main #moreWatch {
   background-color: #7c7b7b;
   padding: 1rem 2rem;
-  margin-top: 5rem;
+  margin-top: 1.5rem;
   border: none;
+  outline: none;
   border-radius: 10rem;
   cursor: pointer;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
-  color: aliceblue;
-  font-weight: bold;
+  color: white;
 }
 
 #home main #moreWatch:hover {
   background-color: #575757;
+}
+
+#scrollToTop {
+  position: fixed;
+  bottom: 5%;
+  right: 1%;
+  font-size: 3rem;
+  color: #494949;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+#scrollToTop:hover {
+  cursor: pointer;
+  font-size: 3.5rem;
+  color: #2c2c2c;
 }
 
 @media (max-width: 1024px) {
@@ -198,7 +201,7 @@ body {
             box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
   }
-  #home #navbar .menu-bar {
+  #home #navbar #hamburger-bar {
     cursor: pointer;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -216,6 +219,9 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  #home section article {
+    width: 350px;
   }
 }
 
@@ -236,9 +242,8 @@ body {
   background-image: linear-gradient(to bottom, rgba(124, 71, 10, 0.5), rgba(251, 138, 10, 0.5));
 }
 
-#qulifications .mainText {
+#qulifications h1 {
   text-transform: uppercase;
-  font-size: 2rem;
 }
 
 #qulifications ul {
@@ -271,11 +276,10 @@ body {
   cursor: grab;
   width: 280px;
   height: 200px;
-  border-radius: 5rem;
+  border-radius: 1rem;
   margin: 1rem;
   -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  background-size: 100% 100%;
 }
 
 #qulifications ul li .text-box {
@@ -318,9 +322,9 @@ body {
 }
 
 #experience article {
-  margin-top: 5rem;
   width: 450px;
-  margin-right: 5rem;
+  margin-top: 2rem;
+  margin-left: 3rem;
 }
 
 #experience article h1 {
@@ -333,9 +337,6 @@ body {
 
 @media (max-width: 1024px) {
   #experience {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -356,7 +357,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: rgba(218, 210, 210, 0.747);
-  z-index: -10;
+  z-index: -99;
   visibility: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -369,7 +370,7 @@ body {
           align-items: center;
 }
 
-.modal .modal-contentbox {
+.modal #modal-contentbox {
   position: relative;
   width: 700px;
   min-height: 400px;
@@ -390,17 +391,17 @@ body {
           align-items: center;
 }
 
-.modal .modal-contentbox #description {
+.modal #modal-contentbox #description {
   margin-top: 2rem;
   line-height: 1.5rem;
 }
 
-.modal .modal-contentbox #title {
+.modal #modal-contentbox #title {
   text-transform: uppercase;
   font-size: 1.5rem;
 }
 
-.modal .modal-contentbox .modal-removeBtn {
+.modal #modal-contentbox #modal-removeBtn {
   cursor: pointer;
   padding: 0;
   margin: 0;
@@ -411,43 +412,21 @@ body {
   right: 30px;
 }
 
-.modal .modal-contentbox article {
+.modal #modal-contentbox article {
   width: 500px;
-}
-
-@media (max-width: 1024px) {
-  .modal .modal-contentbox {
-    width: 90%;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .modal .modal-contentbox article {
-    width: 85%;
-  }
-  .modal .modal-contentbox .link-container {
-    width: 85%;
-  }
 }
 
 .open-modal {
   visibility: visible;
-  z-index: 10;
+  z-index: 100;
 }
 
-#scrollToTop {
-  position: fixed;
-  bottom: 5%;
-  right: 1%;
-  font-size: 3rem;
-  color: #494949;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-}
-
-#scrollToTop:hover {
-  cursor: pointer;
-  font-size: 3.5rem;
-  color: #2c2c2c;
+@media (max-width: 1024px) {
+  .modal #modal-contentbox {
+    width: 90%;
+  }
+  .modal #modal-contentbox article {
+    width: 85%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

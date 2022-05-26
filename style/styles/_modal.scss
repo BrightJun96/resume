@@ -5,13 +5,13 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(218, 210, 210, 0.747);
-  z-index: -10;
+  z-index: -99;
   visibility: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  .modal-contentbox {
+  #modal-contentbox {
     position: relative;
     width: 700px;
     min-height: 400px;
@@ -30,7 +30,7 @@
       font-size: 1.5rem;
     }
 
-    .modal-removeBtn {
+    #modal-removeBtn {
       cursor: pointer;
       padding: 0;
       margin: 0;
@@ -46,18 +46,17 @@
     }
   }
 }
+.open-modal {
+  visibility: visible;
+  z-index: 100;
+}
 
 @media (max-width: 1024px) {
   .modal {
-    .modal-contentbox {
+    #modal-contentbox {
       width: 90%;
-      justify-content: center;
 
       article {
-        width: 85%;
-      }
-
-      .link-container {
         width: 85%;
       }
     }
