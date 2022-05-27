@@ -2,14 +2,13 @@
   position: fixed;
   top: 0;
   left: 0;
+  overflow: scroll;
   width: 100vw;
   height: 100vh;
   background-color: rgba(218, 210, 210, 0.747);
   z-index: -99;
-  visibility: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // visibility: hidden;
+  display: none;
 
   #modal-contentbox {
     position: relative;
@@ -47,8 +46,11 @@
   }
 }
 .open-modal {
-  visibility: visible;
+  // visibility: visible;
   z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 1024px) {

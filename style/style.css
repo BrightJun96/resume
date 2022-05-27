@@ -354,20 +354,12 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  overflow: scroll;
   width: 100vw;
   height: 100vh;
   background-color: rgba(218, 210, 210, 0.747);
   z-index: -99;
-  visibility: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: none;
 }
 
 .modal #modal-contentbox {
@@ -417,8 +409,16 @@ body {
 }
 
 .open-modal {
-  visibility: visible;
   z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media (max-width: 1024px) {
