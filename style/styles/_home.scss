@@ -149,12 +149,13 @@
         font-size: 2rem;
       }
     }
-
-    section {
-      display: flex;
-      flex-direction: column;
-      article {
-        width: 350px;
+    main {
+      section {
+        display: flex;
+        flex-direction: column;
+        article {
+          width: 350px;
+        }
       }
     }
   }

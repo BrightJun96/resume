@@ -211,7 +211,7 @@ body {
             align-items: center;
     font-size: 2rem;
   }
-  #home section {
+  #home main section {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -220,7 +220,7 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  #home section article {
+  #home main section article {
     width: 350px;
   }
 }
@@ -343,7 +343,7 @@ body {
             flex-direction: column;
   }
   #experience article {
-    width: 350px;
+    width: 330px;
   }
   #experience article h1 {
     text-align: center;
