@@ -48,12 +48,6 @@ function domQuerySelector(selector) {
   return document.querySelector(selector);
 }
 
-// const navBar = domIDSelector("navbar")
-// const moreWatch = domIDSelector("moreWatch");
-// const ScrollToTop = domIDSelector("scrollToTop");
-// const hamburgerBar = domIDSelector("hamburger-bar");
-// const menu = domIDSelector("menu");
-
 /*menuBar toggle(모바일을 위한 햄버거 바)*/
 domIDSelector("hamburger-bar").addEventListener("click", () => {
   domIDSelector("menu").classList.toggle("visible");
@@ -86,18 +80,6 @@ function switchScrollToSection(event, sectionName) {
     case "experience":
       scrollTo(0, sectionHeight(domIDSelector(sectionName)));
       break;
-
-    /*
-    error-code
-      switch문 안에는 case와 default 문 이외에 다른 것이 올 수 없음.
-          for ( let i = 0; i < 2; i++ )
-    {
-      const arr = ["qulifications","experience"]
-       case arr[i] : scrollTo( 0, sectionHeight( domIDSelector( sectionName ) ) )
-      break
-    }
-      
-      */
   }
 }
 const categorys = document.querySelectorAll(".category");
@@ -108,20 +90,10 @@ for (let i = 0; i < categorys.length; i++) {
   });
 }
 
-// categorys.forEach((category, index) => {
-//   console.log(index);
-//   category.addEventListener("click", (event) => {
-//     switchScrollToSection(event, category.textContent);
-//   });
-// });
-
 /*-- modal code --*/
 //modal content Selector
 const qulifyBoxes = document.querySelectorAll(".qulify-box");
 const modal = domQuerySelector(".modal");
-// const modalRemoveBtn = domIDSelector("modal-removeBtn");
-// const title = domIDSelector("title");
-// const description = domIDSelector("description");
 
 const modalDomCollection = [
   { name: domIDSelector("title"), option: "title" },
@@ -134,15 +106,6 @@ function elementPaint(domCollection, index) {
     element.name.innerHTML = modalContent[index][element.option];
   });
 }
-//open modal
-// forEach
-// qulifyBoxes.forEach((box, index) => {
-//   box.addEventListener("click", () => {
-//     modal.classList.add("open-modal");
-
-//     elementPaint(modalDomCollection, index);
-//   });
-// });
 
 for (let i = 0; i < qulifyBoxes.length; i++) {
   qulifyBoxes[i].addEventListener("click", () => {
