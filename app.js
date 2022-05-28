@@ -48,35 +48,32 @@ function domQuerySelector(selector) {
   return document.querySelector(selector);
 }
 
-const navBar = domIDSelector("navbar");
-const categorys = document.querySelectorAll(".category");
-const moreWatch = domIDSelector("moreWatch");
-const ScrollToTop = domIDSelector("scrollToTop");
-const hamburgerBar = domIDSelector("hamburger-bar");
-const menu = domIDSelector("menu");
+// const navBar = domIDSelector("navbar")
+// const moreWatch = domIDSelector("moreWatch");
+// const ScrollToTop = domIDSelector("scrollToTop");
+// const hamburgerBar = domIDSelector("hamburger-bar");
+// const menu = domIDSelector("menu");
 
 /*menuBar toggle(모바일을 위한 햄버거 바)*/
-hamburgerBar.addEventListener("click", () => {
-  menu.classList.toggle("visible");
+domIDSelector("hamburger-bar").addEventListener("click", () => {
+  domIDSelector("menu").classList.toggle("visible");
 });
 
 /*-- scroll code --*/
-const navBarHeight = navBar.scrollHeight; // offsetHeight, scrollHeight
-console.log(navBarHeight);
+const navBarHeight = domIDSelector("navbar").scrollHeight; // offsetHeight, scrollHeight,clientHeight
 
 // 높이 값을 반환해주는 함수
 function sectionHeight(section) {
-  console.log(section.offsetTop);
   return section.offsetTop - navBarHeight;
 }
 
 //scroll function
-moreWatch.addEventListener("click", () => {
+domIDSelector("moreWatch").addEventListener("click", () => {
   scrollTo(0, sectionHeight(domIDSelector("qulifications")));
 });
 
 // To Top
-ScrollToTop.addEventListener("click", () => {
+domIDSelector("scrollToTop").addEventListener("click", () => {
   scrollTo(0, 0);
 });
 
@@ -89,25 +86,46 @@ function switchScrollToSection(event, sectionName) {
     case "experience":
       scrollTo(0, sectionHeight(domIDSelector(sectionName)));
       break;
+
+    /*
+    error-code
+      switch문 안에는 case와 default 문 이외에 다른 것이 올 수 없음.
+          for ( let i = 0; i < 2; i++ )
+    {
+      const arr = ["qulifications","experience"]
+       case arr[i] : scrollTo( 0, sectionHeight( domIDSelector( sectionName ) ) )
+      break
+    }
+      
+      */
   }
 }
+const categorys = document.querySelectorAll(".category");
 
-categorys.forEach((category) => {
-  category.addEventListener("click", (event) => {
-    switchScrollToSection(event, category.textContent);
+for (let i = 0; i < categorys.length; i++) {
+  categorys[i].addEventListener("click", (e) => {
+    switchScrollToSection(e, categorys[i].textContent);
   });
-});
+}
+
+// categorys.forEach((category, index) => {
+//   console.log(index);
+//   category.addEventListener("click", (event) => {
+//     switchScrollToSection(event, category.textContent);
+//   });
+// });
 
 /*-- modal code --*/
 //modal content Selector
 const qulifyBoxes = document.querySelectorAll(".qulify-box");
 const modal = domQuerySelector(".modal");
-const modalRemoveBtn = domIDSelector("modal-removeBtn");
-const title = domIDSelector("title");
-const description = domIDSelector("description");
+// const modalRemoveBtn = domIDSelector("modal-removeBtn");
+// const title = domIDSelector("title");
+// const description = domIDSelector("description");
+
 const modalDomCollection = [
-  { name: title, option: "title" },
-  { name: description, option: "description" },
+  { name: domIDSelector("title"), option: "title" },
+  { name: domIDSelector("description"), option: "description" },
 ];
 
 // modal content paint function
@@ -117,16 +135,24 @@ function elementPaint(domCollection, index) {
   });
 }
 //open modal
-qulifyBoxes.forEach((box, index) => {
-  box.addEventListener("click", () => {
-    modal.classList.add("open-modal");
+// forEach
+// qulifyBoxes.forEach((box, index) => {
+//   box.addEventListener("click", () => {
+//     modal.classList.add("open-modal");
 
-    elementPaint(modalDomCollection, index);
+//     elementPaint(modalDomCollection, index);
+//   });
+// });
+
+for (let i = 0; i < qulifyBoxes.length; i++) {
+  qulifyBoxes[i].addEventListener("click", () => {
+    modal.classList.add("open-modal");
+    elementPaint(modalDomCollection, i);
   });
-});
+}
 
 // remove modal
-modalRemoveBtn.addEventListener("click", () => {
+domIDSelector("modal-removeBtn").addEventListener("click", () => {
   modal.classList.remove("open-modal");
 });
 
